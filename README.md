@@ -70,6 +70,14 @@ build-job:
 ## Using Bit Verify
 
 ### Example usage
+
+```
+gitlab.bit.verify         # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.verify
+```
+
+**Parameters**
+1. `--skip-build` - You can use this parameter (e.g `gitlab.bit.verify --skip-build`) to avoid running `bit build` command.
+
 ```
 image: bitsrc/stable:latest
 
@@ -91,6 +99,14 @@ build-job:
 
 ## Using Bit Commit Bitmap
 
+```
+gitlab.bit.commit-back --skip-ci        # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.commit-back
+```
+
+**Parameters**
+1. `--skip-push` - You can use this parameter (e.g `gitlab.bit.verify --skip-push`) to avoid pushing changes. This is mostly used for testing purposes.
+2. `--skip-ci` - You can use this parameter (e.g `gitlab.bit.verify --skip-ci`) to avoid triggering the CI again upon code push that ends up in a loop. This is mostly used for testing purposes.
+
 
 ### Example usage
 
@@ -106,14 +122,20 @@ build-job:
   stage: build
   script: 
     - |      
-      cd my-workspace-dir        # workspace is in this directory
-      gitlab.bit.init            # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.init
-      gitlab.bit.commit-bitmap   # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.commit-bitmap
+      cd my-workspace-dir                   # workspace is in this directory
+      gitlab.bit.init                       # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.init
+      gitlab.bit.commit-bitmap --skip-ci    # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.commit-bitmap
   rules:
      - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
 ```
 
 ## Using Bit Merge Request
+
+```
+gitlab.bit.merge-request        # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.merge-request
+```
+
+Run this script, upon Merge Request is created.
 
 ### Example usage
 ```
@@ -133,6 +155,48 @@ merge-request-job:
       gitlab.bit.merge-request   # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.merge-request
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+```
+
+## Using Bit Tag and Export
+
+```
+gitlab.bit.tag-export        # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.tag-export
+```
+
+### Tag version
+
+Specify the version tag for your components using the following methods. You can use any of these version keywords: `major`, `minor`, `patch`, and `pre-release`. 
+
+- **Merge Request Labels:** Use the keyword directly as a label `major` or enclosed within square brackets `[major]`.
+- **Merge Request or Commit Title:** Include the version keyword enclosed within square brackets `[major]` within your title text.
+
+**Note:** Once a Merge Request is merged, it's tracked via its `merge commit` in the target branch. Therefore, the `merge commit` should be the last in the commit history for the action to read the version keyword from the Merge Request.
+
+#### Git Commit
+
+**Title:** Incorporate the version keyword in the title of your Git commit message.
+
+**Note:** The version based on the latest commit title.
+
+
+### Example usage
+```
+image: bitsrc/stable:latest
+
+variables:
+  # Not required to define BIT_CONFIG_USER_TOKEN or GITLAB_ACCESS_TOKEN if added to GitLab project CI/CD variables
+  GIT_USER_NAME: “git_user_name”
+  GIT_USER_EMAIL: “git”_user_email
+
+release-components-job:
+  stage: build
+  script: 
+    - |      
+      cd my-workspace-dir        # workspace is in this directory
+      gitlab.bit.init            # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.init
+      gitlab.bit.tag-export      # https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.tag-export
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
 ```
 
 ### Automating Component Release
