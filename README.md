@@ -160,7 +160,7 @@ gitlab.bit.tag-export
 ```
 *Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.tag-export)
 
-Tag component versions using labels on Merge Requests or within Merge Request/Commit titles. Utilize version keywords like `major`, `minor`, `patch`, and `pre-release`.
+Tag component versions using labels on Merge Requests or within Merge Request/Commit titles. Use version keywords `major`, `minor`, `patch`, and `pre-release`.
 
 > **Note:** If a Merge Request is merged, track it via its `merge commit` in the target branch. For the action to detect the version keyword, the `merge commit` should be the recent one in the commit history.
 
@@ -182,9 +182,37 @@ release-components-job:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
 ```
+
+### 6. Bit Branch and Lane: `gitlab.bit.branch-lane`
+
+```bash
+gitlab.bit.branch-lane
+```
+*Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.branch-lane)
+
+Execute this script when a new branch is created in Git. It will create a lane in [bit.cloud](https://bit.cloud) for each new Branch and keep the lane in sync with the components modified in Git.
+
+#### Example
+```yaml
+image: bitsrc/stable:latest
+
+variables:
+  GIT_USER_NAME: “git_user_name”
+  GIT_USER_EMAIL: “git_user_email”
+
+build-job:
+  stage: build
+  script: 
+    - |
+      cd test-ws
+      gitlab.bit.init
+      gitlab.bit.branch-lane
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+```
+
 ### Upcoming Features
 - **Update Workspace Components, External Dependencies, and Environments**: Coming soon.
-- **Sync Git Branches with Bit Lanes**: Coming soon.
 
 ## Contributor Guide
 
