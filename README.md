@@ -94,12 +94,12 @@ build-job:
      - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
 ```
 
-### 3. Bit Commit Bitmap: `gitlab.bit.commit-back`
+### 3. Bit Commit Bitmap: `gitlab.bit.commit-bitmap`
 
 ```bash
-gitlab.bit.commit-back --skip-ci
+gitlab.bit.commit-bitmap --skip-ci
 ```
-*Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.commit-back)
+*Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.commit-bitmap)
 
 #### Parameters
 
