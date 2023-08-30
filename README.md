@@ -71,7 +71,7 @@ gitlab.bit.verify
 ```
 *Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.verify)
 
-#### Parameters
+#### Parameters (Optional)
 
 - `--skip-build`: This parameter, like `gitlab.bit.verify --skip-build`, prevents the `bit build` command execution.
 
@@ -101,7 +101,7 @@ gitlab.bit.commit-bitmap --skip-ci
 ```
 *Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.commit-bitmap)
 
-#### Parameters
+#### Parameters (Optional)
 
 - `--skip-push`: Avoids pushing changes; useful for tests.
 - `--skip-ci`: Prevents re-triggering CI on code push, avoiding potential loops.
@@ -211,8 +211,38 @@ build-job:
     - if: '$CI_PIPELINE_SOURCE == "push"'
 ```
 
-### Upcoming Features
-- **Update Workspace Components, External Dependencies, and Environments**: Coming soon.
+### 7. Bit Dependency Update: `gitlab.bit.dependency-update`
+
+```bash
+gitlab.bit.dependency-update --allow "envs, workspace-components"
+```
+*Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.dependency-update)
+
+Run this script as a [scheduled pipeline](https://docs.gitlab.com/ee/ci/pipelines/schedules.html), which will create a merge request to the specified branch with the updated dependencies.
+
+#### Parameters (Optional)
+
+- `--allow`: Allow different types of dependencies. Options `all`, `external-dependencies`, `workspace-components`, `envs`. You can also use a combination of one or two values, e.g. `gitlab.bit.dependency-update --allow "external-dependencies, workspace-components"`. Default `all`.
+- `--branch`: Branch to check for dependency updates. Default `main`.
+
+#### Example
+```yaml
+image: bitsrc/stable:latest
+
+variables:
+  GIT_USER_NAME: “git_user_name”
+  GIT_USER_EMAIL: “git_user_email”
+
+check-updates:
+  stage: build
+  script: 
+    - |
+      cd test-ws
+      gitlab.bit.init
+      gitlab.bit.dependency-update --allow "all" --branch "main"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+```
 
 ## Contributor Guide
 
