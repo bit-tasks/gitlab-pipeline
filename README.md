@@ -22,7 +22,7 @@ For Git CI/CD pipelines, follow these instructions:
 2. **Workspace Navigation:** Move to the appropriate directory if your workspace isn't at the root of your Git repository. For instance, use `cd ws-dir`.
 3. **Script Initialization:** Begin with `gitlab.bit.init`, as subsequent scripts will depend on it.
 4. **CI/CD Variables Setup:** Define new CI/CD variables like:
-   - `GITLAB_ACCESS_TOKEN`: [Project Access Token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html)
+   - `GITLAB_ACCESS_TOKEN`: [Personal Access Token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
    - `BIT_CONFIG_USER_TOKEN`: [Bit Config](https://bit.dev/reference/config/bit-config/)
    - `GIT_USER_NAME`
    - `GIT_USER_EMAIL`
@@ -241,7 +241,7 @@ check-updates:
       gitlab.bit.init
       gitlab.bit.dependency-update --allow "all" --branch "main"
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
 ```
 
 ## Contributor Guide
