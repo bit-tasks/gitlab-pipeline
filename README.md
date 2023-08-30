@@ -132,7 +132,7 @@ gitlab.bit.merge-request
 ```
 *Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.merge-request)
 
-Execute this script when a Merge Request is created.
+Execute this script when a Merge Request is created. It verifies the components and create a lane in [bit.cloud](https://bit.cloud) for previewing and testing components.
 
 #### Example
 ```yaml
@@ -153,7 +153,35 @@ merge-request-job:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
 ```
 
-### 5. Bit Tag and Export: `gitlab.bit.tag-export`
+### 5. Bit Lane Cleanup: `gitlab.bit.lane-cleanup`
+
+```bash
+gitlab.bit.lane-cleanup
+```
+*Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.lane-cleanup)
+
+Execute this script when a Merge Request is closed.
+
+#### Example
+```yaml
+image: bitsrc/stable:latest
+
+variables:
+  GIT_USER_NAME: “git_user_name”
+  GIT_USER_EMAIL: “git_user_email”
+
+merge-request-closed-job:
+  stage: build
+  script: 
+    - |
+      cd my-workspace-dir
+      gitlab.bit.init
+      gitlab.bit.lane-cleanup
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_EVENT == "close"'
+```
+
+### 6. Bit Tag and Export: `gitlab.bit.tag-export`
 
 ```bash
 gitlab.bit.tag-export
@@ -183,7 +211,7 @@ release-components-job:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
 ```
 
-### 6. Bit Branch and Lane: `gitlab.bit.branch-lane`
+### 7. Bit Branch and Lane: `gitlab.bit.branch-lane`
 
 ```bash
 gitlab.bit.branch-lane
@@ -211,7 +239,7 @@ build-job:
     - if: '$CI_PIPELINE_SOURCE == "push"'
 ```
 
-### 7. Bit Dependency Update: `gitlab.bit.dependency-update`
+### 8. Bit Dependency Update: `gitlab.bit.dependency-update`
 
 ```bash
 gitlab.bit.dependency-update --allow "envs, workspace-components"
