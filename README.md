@@ -1,6 +1,6 @@
 # Bit Tasks for Git CI/CD Pipelines
 
-Integrate Bit tasks into your GitLab Pipelines.
+Example GitLab Pipeline Jobs for common Bit and Git CI/CD workflows.
 
 ### GitLab Support with Bit Docker Image
 You can leverage seamless integration of GitLab support through the [Bit Docker image](https://github.com/bit-tasks/bit-docker-image). Select from these available images:
@@ -16,9 +16,8 @@ You can leverage seamless integration of GitLab support through the [Bit Docker 
   ```
 
 ## Setup Guide
-For Git CI/CD pipelines, follow these instructions:
 
-1. **Initialize Configuration File:** Create `.gitlab-ci.yml` in your GitLab repository's root.
+1. **Initialize Configuration File:** Create `.gitlab-ci.yml` in your GitLab repository's root and with the code shown below.
 2. **Workspace Navigation:** Move to the appropriate directory if your workspace isn't at the root of your Git repository. For instance, use `cd ws-dir`.
 3. **Script Initialization:** Begin with `gitlab.bit.init`, as subsequent scripts will depend on it.
 4. **CI/CD Variables Setup:** Define new CI/CD variables like:
@@ -29,9 +28,38 @@ For Git CI/CD pipelines, follow these instructions:
    
 Ensure these variables are correctly configured within your GitLab CI pipeline.
 
-> **Tip:** By setting the variables in [GitLab project CI/CD variables](https://docs.gitlab.com/ee/ci/variables/), they'll automatically be accessible in the script without needing explicit definition in `.gitlab-ci.yml`.
+> **Tip:** By setting the variables in [GitLab project CI/CD variables](https://docs.gitlab.com/ee/ci/variables/), they'll automatically be accessible inside the script `.gitlab-ci.yml`.
 
-## Task Scripts Usage
+### Automating Component Release
+
+| Task                        | Example                         | Script                                 |
+|-----------------------------|---------------------------------|-----------------------------------------------|
+| Initialize Bit             | [bit-init/.gitlab-ci.yml](/gitlab-pipelines/bit-init/.gitlab-ci.yml)          | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.init)    |
+| Bit Verify Components  | [verify/.gitlab-ci.yml](/gitlab-pipelines/verify/.gitlab-ci.yml)                | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.verify)  |
+| Bit Tag and Export        | [tag-export/.gitlab-ci.yml](/gitlab-pipelines/tag-export/.gitlab-ci.yml)  | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.tag-export) |
+| Bit Merge Request Build  | [merge-request/.gitlab-ci.yml](/gitlab-pipelines/merge-request/.gitlab-ci.yml) | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.merge-request) |
+| Bit Lane Cleanup        | [lane-cleanup/.gitlab-ci.yml](/gitlab-pipelines/lane-cleanup/.gitlab-ci.yml) | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.lane-cleanup) |
+| Commit Bitmap           | [commit-bitmap/.gitlab-ci.yml](/gitlab-pipelines/commit-bitmap/.gitlab-ci.yml) | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.commit-bitmap) |
+
+  :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/automating-component-releases.zip)
+
+### Update Workspace Components, External Dependencies and Envs
+
+| Task                        | Example                         | Script                                 |
+|-----------------------------|---------------------------------|-----------------------------------------------|
+| Dependency Update           | [dependency-update/.gitlab-ci.yml](/gitlab-pipelines/dependency-update/.gitlab-ci.yml)   | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.dependency-update)   |
+
+  :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/dependency-update.zip)
+
+### Sync Git Branches with Bit Lanes
+
+| Task                        | Example                         | Script                                 |
+|-----------------------------|---------------------------------|-----------------------------------------------|
+| Branch Lane                 | [branch-lane/.gitlab-ci.yml](/gitlab-pipelines/branch-lane/.gitlab-ci.yml)  |  [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.branch-lane) |
+
+  :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/branch-lane.zip)
+
+## Usage Documentation
 
 ### 1. Bit Initialization: `gitlab.bit.init`
 
