@@ -32,7 +32,7 @@ Ensure these variables are correctly configured within your GitLab CI pipeline.
 
 ### Automating Component Release
 
-| Task                        | Example                         | Script                                 |
+| Task                        | Example                         | Script Source                                 |
 |-----------------------------|---------------------------------|-----------------------------------------------|
 | Initialize Bit             | [bit-init/.gitlab-ci.yml](/gitlab-pipelines/bit-init/.gitlab-ci.yml)          | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.init)    |
 | Bit Verify Components  | [verify/.gitlab-ci.yml](/gitlab-pipelines/verify/.gitlab-ci.yml)                | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.verify)  |
@@ -45,7 +45,7 @@ Ensure these variables are correctly configured within your GitLab CI pipeline.
 
 ### Update Workspace Components, External Dependencies and Envs
 
-| Task                        | Example                         | Script                                 |
+| Task                        | Example                         | Script Source                                 |
 |-----------------------------|---------------------------------|-----------------------------------------------|
 | Dependency Update           | [dependency-update/.gitlab-ci.yml](/gitlab-pipelines/dependency-update/.gitlab-ci.yml)   | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.dependency-update)   |
 
@@ -53,7 +53,7 @@ Ensure these variables are correctly configured within your GitLab CI pipeline.
 
 ### Sync Git Branches with Bit Lanes
 
-| Task                        | Example                         | Script                                 |
+| Task                        | Example                         | Script Source                                 |
 |-----------------------------|---------------------------------|-----------------------------------------------|
 | Branch Lane                 | [branch-lane/.gitlab-ci.yml](/gitlab-pipelines/branch-lane/.gitlab-ci.yml)  |  [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.branch-lane) |
 
