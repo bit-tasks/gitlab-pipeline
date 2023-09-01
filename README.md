@@ -32,30 +32,30 @@ Ensure these variables are correctly configured within your GitLab CI pipeline.
 
 ### Automating Component Release
 
-| Task                        | Example                         | Script Source                                 |
-|-----------------------------|---------------------------------|-----------------------------------------------|
-| Initialize Bit             | [bit-init/.gitlab-ci.yml](/gitlab-pipelines/bit-init/.gitlab-ci.yml)          | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.init)    |
-| Bit Verify Components  | [verify/.gitlab-ci.yml](/gitlab-pipelines/verify/.gitlab-ci.yml)                | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.verify)  |
-| Bit Tag and Export        | [tag-export/.gitlab-ci.yml](/gitlab-pipelines/tag-export/.gitlab-ci.yml)  | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.tag-export) |
-| Bit Merge Request Build  | [merge-request/.gitlab-ci.yml](/gitlab-pipelines/merge-request/.gitlab-ci.yml) | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.merge-request) |
-| Bit Lane Cleanup        | [lane-cleanup/.gitlab-ci.yml](/gitlab-pipelines/lane-cleanup/.gitlab-ci.yml) | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.lane-cleanup) |
-| Commit Bitmap           | [commit-bitmap/.gitlab-ci.yml](/gitlab-pipelines/commit-bitmap/.gitlab-ci.yml) | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.commit-bitmap) |
+| Task                        | Example                         | 
+|-----------------------------|---------------------------------|
+| Initialize Bit             | [bit-init/.gitlab-ci.yml](/gitlab-pipelines/bit-init/.gitlab-ci.yml)          |
+| Bit Verify Components  | [verify/.gitlab-ci.yml](/gitlab-pipelines/verify/.gitlab-ci.yml)                |
+| Bit Tag and Export        | [tag-export/.gitlab-ci.yml](/gitlab-pipelines/tag-export/.gitlab-ci.yml)  |
+| Bit Merge Request Build  | [merge-request/.gitlab-ci.yml](/gitlab-pipelines/merge-request/.gitlab-ci.yml) |
+| Bit Lane Cleanup        | [lane-cleanup/.gitlab-ci.yml](/gitlab-pipelines/lane-cleanup/.gitlab-ci.yml) |
+| Commit Bitmap           | [commit-bitmap/.gitlab-ci.yml](/gitlab-pipelines/commit-bitmap/.gitlab-ci.yml) |
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/automating-component-releases.zip)
 
 ### Update Workspace Components, External Dependencies and Envs
 
-| Task                        | Example                         | Script Source                                 |
-|-----------------------------|---------------------------------|-----------------------------------------------|
-| Dependency Update           | [dependency-update/.gitlab-ci.yml](/gitlab-pipelines/dependency-update/.gitlab-ci.yml)   | [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.dependency-update)   |
+| Task                        | Example                         |
+|-----------------------------|---------------------------------|
+| Dependency Update           | [dependency-update/.gitlab-ci.yml](/gitlab-pipelines/dependency-update/.gitlab-ci.yml)   |
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/dependency-update.zip)
 
 ### Sync Git Branches with Bit Lanes
 
-| Task                        | Example                         | Script Source                                 |
-|-----------------------------|---------------------------------|-----------------------------------------------|
-| Branch Lane                 | [branch-lane/.gitlab-ci.yml](/gitlab-pipelines/branch-lane/.gitlab-ci.yml)  |  [link](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.branch-lane) |
+| Task                        | Example                         |
+|-----------------------------|---------------------------------|
+| Branch Lane                 | [branch-lane/.gitlab-ci.yml](/gitlab-pipelines/branch-lane/.gitlab-ci.yml)  |
 
   :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/branch-lane.zip)
 
