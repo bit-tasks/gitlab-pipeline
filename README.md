@@ -1,6 +1,6 @@
 # Bit Tasks for Git CI/CD Pipelines
 
-Example GitLab Pipeline Jobs for common Bit and Git CI/CD workflows.
+Example GitLab Pipeline jobs for common Bit and Git CI/CD workflows.
 
 ### GitLab Support with Bit Docker Image
 You can leverage seamless integration of GitLab support through the [Bit Docker image](https://github.com/bit-tasks/bit-docker-image). Select from these available images:
