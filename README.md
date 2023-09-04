@@ -303,3 +303,10 @@ check-updates:
 ## Contributor Guide
 
 To contribute, make updates to scripts starting with `gitlab.bit.` in the [Bit Docker Image Repository](https://github.com/bit-tasks/bit-docker-image).
+
+To create zip files use the below commands.
+
+```bash
+chmod +x zip_files.sh
+bash ./zip_files.sh
+```
