@@ -206,7 +206,7 @@ merge-request-closed-job:
       gitlab.bit.init
       gitlab.bit.lane-cleanup
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_MERGE_COMMIT_SHA'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
 ```
 
 ### 6. Bit Tag and Export: `gitlab.bit.tag-export`
