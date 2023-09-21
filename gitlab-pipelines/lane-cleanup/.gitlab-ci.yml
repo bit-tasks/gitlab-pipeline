@@ -12,4 +12,4 @@ merge-request-closed-job:
       gitlab.bit.init
       gitlab.bit.lane-cleanup
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_EVENT == "close"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
