@@ -188,7 +188,7 @@ gitlab.bit.lane-cleanup
 ```
 *Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.lane-cleanup)
 
-Execute this script when a Merge Request is merged.
+Execute this script when a Merge Request is approved (GitLab doesn't have a Merge Request merged or closed event). You need to update $CI_MERGE_REQUEST_APPROVALS to match with your configuration.
 
 #### Example
 ```yaml
@@ -206,7 +206,7 @@ merge-request-closed-job:
       gitlab.bit.init
       gitlab.bit.lane-cleanup
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_APPROVALS == "1" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
 ```
 
 ### 6. Bit Tag and Export: `gitlab.bit.tag-export`
