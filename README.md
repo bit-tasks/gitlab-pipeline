@@ -22,13 +22,14 @@ You can leverage seamless integration of GitLab support through the [Bit Docker 
 3. **Script Initialization:** Begin with `gitlab.bit.init`, as subsequent scripts will depend on it.
 4. **CI/CD Variables Setup:** Define new CI/CD variables like:
    - `GITLAB_TOKEN`: [Project Access Token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [Personal Access Token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
+   - `BIT_CLOUD_ACCESS_TOKEN`: [Bit Config](https://bit.dev/reference/config/bit-config/) *You need either BIT_CLOUD_ACCESS_TOKEN or BIT_CONFIG_USER_TOKEN. Not both.*
    - `BIT_CONFIG_USER_TOKEN`: [Bit Config](https://bit.dev/reference/config/bit-config/)
    - `GIT_USER_NAME`
    - `GIT_USER_EMAIL`
    
 Ensure these variables are correctly configured within your GitLab CI pipeline.
 
-> **Tip:** By setting the variables in [GitLab project CI/CD variables](https://docs.gitlab.com/ee/ci/variables/), they'll automatically be accessible inside the script `.gitlab-ci.yml`.
+> **Note:** If you set the variables in [GitLab project CI/CD variables](https://docs.gitlab.com/ee/ci/variables/), there's no need to explicitly define them inside your `.gitlab-ci.yml` file.
 
 ### Automating Component Release
 
