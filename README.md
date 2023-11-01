@@ -221,6 +221,8 @@ Tag component versions using labels on Merge Requests or within Merge Request/Co
 
 > **Note:** If a Merge Request is merged, track it via its `merge commit` in the target branch. For the action to detect the version keyword, the `merge commit` should be the recent one in the commit history.
 
+You can persist soft tagged components by adding `--persist` flag.
+
 #### Example
 ```yaml
 image: bitsrc/stable:latest
