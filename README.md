@@ -22,8 +22,7 @@ You can leverage seamless integration of GitLab support through the [Bit Docker 
 3. **Script Initialization:** Begin with `gitlab.bit.init`, as subsequent scripts will depend on it.
 4. **CI/CD Variables Setup:** Define new CI/CD variables like:
    - `GITLAB_TOKEN`: [Project Access Token](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html) or [Personal Access Token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
-   - `BIT_CLOUD_ACCESS_TOKEN`: [Bit Config](https://bit.dev/reference/config/bit-config/) *You need either BIT_CLOUD_ACCESS_TOKEN or BIT_CONFIG_USER_TOKEN. Not both.*
-   - `BIT_CONFIG_USER_TOKEN`: [Bit Config](https://bit.dev/reference/config/bit-config/)
+   - `BIT_CONFIG_USER_TOKEN` *You need either BIT_CONFIG_USER_TOKEN ([docs](https://bit.dev/reference/reference/config/bit-config/#modify-a-configuration-value)) or BIT_CLOUD_ACCESS_TOKEN ([docs](https://bit.dev/reference/ci/gitlab-ci#generating-an-access-token)). Not both.*
    - `GIT_USER_NAME`
    - `GIT_USER_EMAIL`
    
