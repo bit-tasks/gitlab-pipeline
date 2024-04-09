@@ -13,7 +13,7 @@ cd gitlab-pipelines
 zip -r "$current_dir/downloads/automating-component-releases.zip" \
       bit-init \
       commit-bitmap \
-      pull-request \
+      merge-request \
       lane-cleanup \
       tag-export \
       verify

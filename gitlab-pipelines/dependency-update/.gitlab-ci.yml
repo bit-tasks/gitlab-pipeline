@@ -8,7 +8,7 @@ check-updates:
   stage: build
   script: 
     - |
-      cd test-ws
+      cd my-workspace-dir
       gitlab.bit.init
       gitlab.bit.dependency-update --allow "all" --branch "main"
   rules:

@@ -8,7 +8,7 @@ build-job:
   stage: build
   script: 
     - |
-      cd test-ws
+      cd my-workspace-dir
       gitlab.bit.init
       gitlab.bit.branch-lane
   rules:
