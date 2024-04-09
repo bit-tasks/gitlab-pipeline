@@ -41,7 +41,7 @@ Ensure these variables are correctly configured within your GitLab CI pipeline.
 | Bit Lane Cleanup        | [lane-cleanup/.gitlab-ci.yml](/gitlab-pipelines/lane-cleanup/.gitlab-ci.yml) |
 | Commit Bitmap           | [commit-bitmap/.gitlab-ci.yml](/gitlab-pipelines/commit-bitmap/.gitlab-ci.yml) |
 
-  :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/automating-component-releases.zip)
+  :arrow_down: [Download Files](https://github.com/bit-tasks/gitlab-pipeline-examples/raw/main/downloads/automating-component-releases.zip)
 
 ### Update Workspace Components, External Dependencies and Envs
 
@@ -49,7 +49,7 @@ Ensure these variables are correctly configured within your GitLab CI pipeline.
 |-----------------------------|---------------------------------|
 | Dependency Update           | [dependency-update/.gitlab-ci.yml](/gitlab-pipelines/dependency-update/.gitlab-ci.yml)   |
 
-  :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/dependency-update.zip)
+  :arrow_down: [Download Files](https://github.com/bit-tasks/gitlab-pipeline-examples/raw/main/downloads/dependency-update.zip)
 
 ### Sync Git Branches with Bit Lanes
 
@@ -57,7 +57,7 @@ Ensure these variables are correctly configured within your GitLab CI pipeline.
 |-----------------------------|---------------------------------|
 | Branch Lane                 | [branch-lane/.gitlab-ci.yml](/gitlab-pipelines/branch-lane/.gitlab-ci.yml)  |
 
-  :arrow_down: [Download Files](https://github.com/bit-tasks/github-action-examples/raw/main/downloads/branch-lane.zip)
+  :arrow_down: [Download Files](https://github.com/bit-tasks/gitlab-pipeline-examples/raw/main/downloads/branch-lane.zip)
 
 ## Usage Documentation
 
