@@ -302,6 +302,34 @@ check-updates:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
 ```
 
+## Setup Caching
+You can speed up the CI builds by caching pnpm dependencies by adding the `before_script` and `cache` sections.
+
+```
+image: bitsrc/stable:latest
+
+variables:
+  GIT_USER_NAME: “git_user_name”
+  GIT_USER_EMAIL: “git_user_email”
+
+build-job:
+  stage: build
+  before_script:
+    - pnpm config set store-dir .pnpm-store
+  script: 
+    - |
+      cd test-ws
+      gitlab.bit.init
+  cache:
+    key:
+      files:
+        - test-ws/pnpm-lock.yaml
+    paths:
+      - test-ws/.pnpm-store
+```
+
+**Note:** Replace the directory `test-ws` with your workspace directory.
+
 ## Contributor Guide
 
 To contribute, make updates to scripts starting with `gitlab.bit.` in the [Bit Docker Image Repository](https://github.com/bit-tasks/bit-docker-image).
