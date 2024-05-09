@@ -302,8 +302,8 @@ check-updates:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
 ```
 
-## Setup Caching
-You can speed up the CI builds by caching pnpm dependencies by adding the `before_script` and `cache` sections.
+## Setup PNPM Caching
+You can speed up the CI builds by caching `pnpm store` using the `before_script` and `cache` sections.
 
 ```
 image: bitsrc/stable:latest
