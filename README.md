@@ -269,7 +269,33 @@ build-job:
     - if: '$CI_PIPELINE_SOURCE == "push"'
 ```
 
-### 8. Bit Dependency Update: `gitlab.bit.dependency-update`
+### 8. Bit Lane and Branch: `gitlab.bit.lane-branch`
+
+```bash
+gitlab.bit.lane-branch
+```
+*Source:* [script details](https://github.com/bit-tasks/bit-docker-image/blob/main/scripts/gitlab.bit.lane-branch)
+
+Execute this script when you need to create a new branch importing components from specific bit lane in [bit.cloud](https://bit.cloud).
+
+#### Example
+```yaml
+image: bitsrc/stable:latest
+
+variables:
+  GIT_USER_NAME: “git_user_name”
+  GIT_USER_EMAIL: “git_user_email”
+  LANE_NAME: "my-org.my-scope/my-lane-name" # Default lane name, can be overridden from the UI
+build-job:
+  stage: build
+  script: 
+    - |
+      cd test-ws
+      gitlab.bit.init --skip-install
+      gitlab.bit.lane-branch --lane-name "$LANE_NAME"
+```
+
+### 9. Bit Dependency Update: `gitlab.bit.dependency-update`
 
 ```bash
 gitlab.bit.dependency-update --allow "envs, workspace-components"

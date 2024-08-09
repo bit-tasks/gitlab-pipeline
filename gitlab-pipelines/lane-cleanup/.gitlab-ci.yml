@@ -1,15 +1,14 @@
 image: bitsrc/stable:latest
 
 variables:
-  GIT_USER_NAME: “git_user_name”
-  GIT_USER_EMAIL: “git_user_email”
+  GIT_USER_NAME: "git_user_name"
+  GIT_USER_EMAIL: "git_user_email"
+  LANE_NAME: "my-org.my-scope/my-lane-name" # Default lane name, can be overridden from the UI
 
-merge-request-closed-job:
+build-job:
   stage: build
   script: 
     - |
       cd my-workspace-dir
-      gitlab.bit.init
-      gitlab.bit.lane-cleanup
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
+      gitlab.bit.init --skip-install
+      gitlab.bit.lane-branch --lane-name "$LANE_NAME"

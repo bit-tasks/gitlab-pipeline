@@ -19,7 +19,10 @@ zip -r "$current_dir/downloads/automating-component-releases.zip" \
       verify
 
 # Zip other individual directories
-zip -r "$current_dir/downloads/branch-lane.zip" branch-lane
+zip -r "$current_dir/downloads/branch-lane.zip" \
+      branch-lane \
+      lane-branch
+
 zip -r "$current_dir/downloads/dependency-update.zip" dependency-update
 
 # Go back to the original directory
