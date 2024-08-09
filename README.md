@@ -293,6 +293,9 @@ build-job:
       cd test-ws
       gitlab.bit.init --skip-install
       gitlab.bit.lane-branch --lane-name "$LANE_NAME"
+  rules:
+    - if: '$LANE_NAME != "main"'
+  when: manual
 ```
 
 ### 9. Bit Dependency Update: `gitlab.bit.dependency-update`
